@@ -9,6 +9,29 @@
     line: "source /opt/rh/rh-python{{ scl_python_version }}/enable"
     create: yes
 
+- name: install python packages
+  yum:
+    name: "rh-python{{ scl_python_version }}-python-{{item}}"
+    state: latest
+  with_items:
+    - "setuptools"
+    - "pip"
+    - "jinja2"
+
 - pip:
-    name: pip
-    version: 10.0.1
+    name: ipaddress
+#- pip:
+#    name: openshift
+- pip:
+    name: PyYAML
+
+## Old Python
+- name: install old python packages
+  yum:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - PyYAML
+    - python-ipaddress
+
+- shell: /usr/bin/pip2 install -I openshift

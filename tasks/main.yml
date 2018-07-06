@@ -18,20 +18,24 @@
     - "pip"
     - "jinja2"
 
-- pip:
-    name: ipaddress
-#- pip:
-#    name: openshift
-- pip:
-    name: PyYAML
-
-## Old Python
-- name: install old python packages
-  yum:
+- name: install latest python packages
+  pip:
     name: "{{item}}"
     state: latest
   with_items:
-    - PyYAML
-    - python-ipaddress
+    - "setuptools"
+    - "pip"
 
+- name: install other python packages
+  pip:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - "PyYAML"
+    - "python-magic"
+    - "ipaddress"
+    - "jinja2"
+
+# @TODO / Hack
+# Fixes: Cannot uninstall 'ipaddress'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
 - shell: /usr/bin/pip2 install -I openshift

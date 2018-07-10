@@ -9,10 +9,17 @@
     line: "source /opt/rh/rh-python{{ scl_python_version }}/enable"
     create: yes
 
+- name: install python utils
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - "libgit2-devel"
+
 - name: install python packages
   yum:
     name: "rh-python{{ scl_python_version }}-python-{{item}}"
-    state: latest
+    state: present
   with_items:
     - "setuptools"
     - "pip"
@@ -26,6 +33,12 @@
     - "setuptools"
     - "pip"
 
+- name: install latest python packages
+  pip:
+    name: "pygit2"
+    version: "0.26.0"
+    state: present
+
 - name: install other python packages
   pip:
     name: "{{item}}"
@@ -35,6 +48,8 @@
     - "python-magic"
     - "ipaddress"
     - "jinja2"
+    - "pyhelm"
+    - "pyOpenSSL"
 
 # @TODO / Hack
 # Fixes: Cannot uninstall 'ipaddress'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.

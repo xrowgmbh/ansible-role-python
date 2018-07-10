@@ -1,0 +1,12 @@
+image: docker:stable
+
+variables:
+  GIT_STRATEGY: fetch
+
+test:
+  stage: test
+  script:
+  - /bin/cp -R ${PWD}/ /tests/test-${CI_BUILD_ID}
+  - wget -q -O - https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/ | role_dir=/tests/test-${CI_BUILD_ID} sh
+  - rm -Rf /tests/test-${CI_BUILD_ID}
+

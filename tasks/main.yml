@@ -16,6 +16,7 @@
   with_items:
     - "gcc"
     - "libgit2-devel"
+    - "python-devel"
 
 - name: install python packages
   yum:

@@ -7,6 +7,6 @@ test:
   stage: test
   script:
   - /bin/cp -R ${PWD}/ /tests/test-${CI_BUILD_ID}
-  - wget -q -O - https://raw.githubusercontent.com/xrowgmbh/docker-ansible/master/test.sh | role_dir=/tests/test-${CI_BUILD_ID} sh
+  - wget -q -O - https://raw.githubusercontent.com/xrowgmbh/docker-ansible/master/test.sh | test_idempotence=false role_dir=/tests/test-${CI_BUILD_ID} sh
   - rm -Rf /tests/test-${CI_BUILD_ID}
 

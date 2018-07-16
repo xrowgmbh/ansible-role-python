@@ -41,6 +41,11 @@
     version: "0.26.0"
     state: present
 
+# @TODO / Hack
+# Fixes: Cannot uninstall 'ipaddress'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+- name: install openshift
+  shell: /usr/bin/pip2 install -I openshift
+
 - name: install other python packages
   pip:
     name: "{{item}}"
@@ -53,6 +58,3 @@
     - "pyhelm"
     - "pyOpenSSL"
 
-# @TODO / Hack
-# Fixes: Cannot uninstall 'ipaddress'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
-- shell: /usr/bin/pip2 install -I openshift

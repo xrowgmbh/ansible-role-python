@@ -9,6 +9,9 @@
     line: "source /opt/rh/rh-python{{ scl_python_version }}/enable"
     create: yes
 
+- name: Enable scl python for current session
+  shell: source /opt/rh/rh-python{{ scl_python_version }}/enable
+
 - name: install python utils
   yum:
     name: "{{item}}"

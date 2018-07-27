@@ -1,0 +1,54 @@
+- name: Install python version
+  package:
+    name: "python"
+    state: present
+
+- name: Globally enable python 27
+  file:
+    path: /etc/profile.d/scl-python.sh
+    state: absent
+
+- name: install python utils
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - "gcc"
+    - "libgit2-devel"
+    - "python-devel"
+
+- name: install latest python packages
+  pip:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - "setuptools"
+    - "pip"
+
+- name: install latest python packages
+  pip:
+    name: "pygit2"
+    version: "0.26.0"
+    state: present
+
+# @TODO / Hack
+# Fixes: Cannot uninstall 'ipaddress'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+# name: install openshift
+# pip: 
+#   name: "openshift"
+#   state: present
+#   extra_args: --ignore-installed
+
+- name: install other python packages
+  pip:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - "PyYAML"
+    - "python-magic"
+    - "ipaddress"
+    - "jinja2"
+#   - "pyhelm"
+    - "pyOpenSSL"
+
+

@@ -1,0 +1,22 @@
+- name: Install python version
+  package:
+    name: "rh-python{{ scl_python_version }}"
+    state: present
+
+- name: Globally enable scl python
+  lineinfile:
+    path: /etc/profile.d/scl-python.sh
+    line: "source /opt/rh/rh-python{{ scl_python_version }}/enable"
+    create: yes
+
+- name: Enable scl python for current session
+  shell: source /opt/rh/rh-python{{ scl_python_version }}/enable
+
+- name: install python packages
+  yum:
+    name: "rh-python{{ scl_python_version }}-python-{{item}}"
+    state: present
+  with_items:
+    - "setuptools"
+    - "pip"
+    - "jinja2"

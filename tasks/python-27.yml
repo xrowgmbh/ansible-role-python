@@ -25,6 +25,13 @@
     - "setuptools"
     - "pip"
 
+# https://github.com/docker/compose/issues/5883
+- name: install latest python packages
+  pip:
+    name: "pip"
+    version: "9.0.3"
+    state: present
+
 - name: install latest python packages
   pip:
     name: "pygit2"

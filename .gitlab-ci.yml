@@ -2,12 +2,10 @@ image: docker:stable
 
 variables:
   GIT_STRATEGY: fetch
-  CI_JOB_TOKEN: ${CI_JOB_TOKEN}
 
 test:
   stage: test
   script:
-  - sleep 10000
   - /bin/cp -R ${PWD}/ /tests/test-${CI_BUILD_ID}
   - wget -q -O - https://raw.githubusercontent.com/xrowgmbh/docker-ansible/master/test.sh | role_dir=/tests/test-${CI_BUILD_ID} sh
   - rm -Rf /tests/test-${CI_BUILD_ID}

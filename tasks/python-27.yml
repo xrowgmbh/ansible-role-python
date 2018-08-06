@@ -15,18 +15,20 @@
   with_items:
     - "gcc"
     - "libgit2-devel"
-    - "python-devel"
 
-- name: install latest python packages
-  pip:
-    name: "{{item}}"
-    state: latest
+- name: install python packages
+  yum:
+    name: "python-{{item}}"
+    state: present
+    enablerepo: extras
   with_items:
+    - "devel"
     - "setuptools"
     - "pip"
+    - "passlib"
 
 # https://github.com/docker/compose/issues/5883
-- name: install latest python packages
+- name: install latest pip packages
   pip:
     name: "pip"
     version: "9.0.3"

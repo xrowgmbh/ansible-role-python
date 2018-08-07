@@ -24,7 +24,6 @@
   with_items:
     - "devel"
     - "setuptools"
-    - "pip"
     - "passlib"
 
 # https://github.com/docker/compose/issues/5883

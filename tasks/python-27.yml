@@ -16,6 +16,8 @@
     - "gcc"
     - "libgit2-devel"
     - "libffi-devel"
+    - "pexpect"
+    - "python-pip"
 
 - name: install python packages
   yum:
@@ -25,7 +27,6 @@
   with_items:
     - "devel"
     - "setuptools"
-    - "pip"
     - "passlib"
 
 # https://github.com/docker/compose/issues/5883

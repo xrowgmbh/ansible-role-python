@@ -1,4 +1,7 @@
 ---
+dependencies:
+  - role: epel-repo
+
 galaxy_info:
   author: 'Björn Dieding'
   description: 'Installs SCL Python version and enables it globally'

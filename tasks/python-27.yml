@@ -16,7 +16,6 @@
     - "gcc"
     - "libgit2-devel"
     - "libffi-devel"
-    - "pexpect"
     - "python-pip"
 
 - name: install python packages

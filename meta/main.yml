@@ -1,6 +1,4 @@
 ---
-dependencies:
-  - role: epel-repo
 
 galaxy_info:
   author: 'Björn Dieding'
@@ -18,3 +16,4 @@ galaxy_info:
     - updates
 dependencies:
   - { role: scl }
+  - { role: epel-repo }

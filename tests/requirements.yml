@@ -1,4 +1,5 @@
 - src: https://github.com/xrowgmbh/ansible-role-scl.git
   name: scl
-- src:git@gitlab.com:xrow-shared/ansible-role-repo-epel.git
-  name: repo-epel
+  
+- src: git@gitlab.com:xrow-shared/ansible-role-repo-epel.git
+  name: epel-repo

@@ -16,4 +16,4 @@ galaxy_info:
     - updates
 dependencies:
   - { role: scl }
-  - { role: epel-repo }
+  - { role: repo-epel }

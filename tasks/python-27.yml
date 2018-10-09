@@ -74,5 +74,3 @@
     - "jinja2"
 #   - "pyhelm"
     - "pyOpenSSL"
-    - "kerberos"
-    - "requests_kerberos"

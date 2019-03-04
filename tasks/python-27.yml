@@ -73,3 +73,7 @@
       - "jinja2"
 #     - "pyhelm"
       - "pyOpenSSL"
+      - "Cheetah"
+      - "netaddr"
+      - "simplejson"
+      - "urlgrabber"

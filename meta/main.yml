@@ -1,5 +1,7 @@
 ---
-  - role: scl
+dependencies:
+  - { role: scl }
+  - { role: repo-epel }
 
 galaxy_info:
   author: 'Björn Dieding'

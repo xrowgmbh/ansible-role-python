@@ -23,6 +23,7 @@
       - "python-devel"
       - "python-setuptools"
       - "python-passlib"
+      - "python-pathlib"
     state: present
     enablerepo: extras
 

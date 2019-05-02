@@ -68,6 +68,7 @@
     name: "{{item}}"
     state: present
   with_items:
+    - "pyghmi"
     - "PyYAML"
     - "python-magic"
     - "ipaddress"

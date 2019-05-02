@@ -4,4 +4,4 @@
   
 - src: git@gitlab.com:xrow-shared/ansible-role-repo-epel.git
   scm: git
-  name: epel-repo
+  name: repo-epel

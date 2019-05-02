@@ -10,23 +10,23 @@
 
 - name: install python utils
   yum:
-    name: "{{item}}"
+    name:
+      - "gcc"
+      - "libgit2-devel"
+      - "libffi-devel"
+      - "python-pip"
     state: present
-  with_items:
-    - "gcc"
-    - "libgit2-devel"
-    - "libffi-devel"
-    - "python-pip"
-
+    
 - name: install python packages
   yum:
-    name: "python-{{item}}"
+    name:
+      - "python-devel"
+      - "python-setuptools"
+      - "python-passlib"
+      - "python-pathlib"
     state: present
     enablerepo: extras
-  with_items:
-    - "devel"
-    - "setuptools"
-    - "passlib"
+
 
 # Fix pexpect
 - name: Ensure a list of packages removed
@@ -65,15 +65,19 @@
 
 - name: install other python packages
   pip:
-    name: "{{item}}"
+
     state: present
-  with_items:
-    - "pyghmi"
-    - "PyYAML"
-    - "python-magic"
-    - "ipaddress"
-    - "jinja2"
-#   - "pyhelm"
-    - "pyOpenSSL"
-    - "kerberos"
-    - "requests_kerberos"
+    name:
+      - "PyYAML"
+      - "python-magic"
+      - "ipaddress"
+      - "jinja2"
+#     - "pyhelm"
+      - "pyOpenSSL"
+      - "Cheetah"
+      - "netaddr"
+      - "simplejson"
+      - "urlgrabber"
+      - "pyghmi"
+      - "kerberos"
+      - "requests_kerberos"

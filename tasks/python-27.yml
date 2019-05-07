@@ -65,7 +65,6 @@
 
 - name: install other python packages
   pip:
-
     state: present
     name:
       - "PyYAML"
@@ -81,3 +80,9 @@
       - "pyghmi"
       - "kerberos"
       - "requests_kerberos"
+
+- lineinfile:
+    path: /etc/python/cert-verification.cfg
+    regexp: '^verify='
+    insertafter: '^[https]'
+    line: 'verify=disable'

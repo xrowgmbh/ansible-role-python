@@ -24,6 +24,7 @@
       - "python-setuptools"
       - "python-passlib"
       - "python-pathlib"
+      - "python-dns"
     state: present
     enablerepo: extras
 

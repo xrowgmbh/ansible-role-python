@@ -1,7 +1,3 @@
 - name: Install scl python
-  include: "scl.yml"
-  when: scl_python_version is defined
-      
-- name: Install scl python
-  include: "python-27.yml"
+  include: "python-{{python_version}}.yml"
   when: scl_python_version is not defined

@@ -2,4 +2,4 @@
 # Currently supported version: 34, 35, 36
 # (3.4.x and 3.5.x)
 # Defaults to 27
-# scl_python_version: 36
+python_version: 36

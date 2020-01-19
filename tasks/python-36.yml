@@ -1,0 +1,70 @@
+- name: Install python version
+  package:
+    name: "python3"
+    state: present
+
+- name: install python utils
+  yum:
+    name:
+      - "gcc"
+      - "libgit2"
+      - "libffi"
+      - "python3-pip"
+    state: present
+    
+- name: install python packages
+  yum:
+    name:
+      - "python3-devel"
+      - "python3-setuptools"
+      - "python3-passlib"
+      - "python3-cryptography"
+    state: present
+    enablerepo: extras
+
+
+# Fix pexpect
+- name: Ensure a list of packages removed
+  yum:
+    name: pexpect
+    state: absent
+
+- name: Ensure a list of python packages installed
+  pip:
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
+  loop:
+    - name: pexpect
+      version: 4.6
+
+#- name: install latest python packages
+#  pip:
+#    name: "pygit2"
+#    version: "0.26.0"
+#    state: present
+
+# @TODO / Hack
+# Fixes: Cannot uninstall 'ipaddress'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+# name: install openshift
+# pip: 
+#   name: "openshift"
+#   state: present
+#   extra_args: --ignore-installed
+
+#- name: install other python packages
+#  pip:
+#    state: present
+#    name:
+#      - "PyYAML"
+#      - "python-magic"
+#      - "ipaddress"
+#      - "jinja2"
+#     - "pyhelm"
+#      - "pyOpenSSL"
+#      - "Cheetah"
+#      - "netaddr"
+#      - "simplejson"
+#      - "urlgrabber"
+#      - "pyghmi"
+#      - "kerberos"
+#      - "requests_kerberos"

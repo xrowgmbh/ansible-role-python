@@ -13,7 +13,7 @@
   shell: source /opt/rh/rh-python{{ scl_python_version }}/enable
 
 - name: install python packages
-  yum:
+  package:
     name: "rh-python{{ scl_python_version }}-python-{{item}}"
     state: present
   with_items:
